@@ -10,21 +10,22 @@ from lgsvl.geometry import Transform, Vector
 
 
 if __name__ == "__main__":
-    wod_file = "D:\Datasets\WaymoMotion\scenario\\1.tfrecord-00000-of-01000" 
-    scenario = Scenario(wod_file)
+    # wod_file = "D:\Datasets\WaymoMotion\scenario\\1.tfrecord-00000-of-01000" 
+    json_scenario = "./scenarios/scenario.json"
+    scenario = Scenario(json_scenario)
 
-    plt = Plot()
-    plt.plot_map(scenario.scenario)
+    # plt = Plot()
+    # plt.plot_map(scenario.scenario)
 
     # print("ProjectVR simulation test: NPC following waypoints")
     # env = Env()
-    # flat_world = 'e6dc21da-0105-4534-a30d-c1939a8a4ff6'
+    # san_fran = '1f903cb2-477e-44aa-a8c0-a29af6d5e433'
 
     # sim = lgsvl.Simulator(env.str("LGSVL__SIMULATOR_HOST", lgsvl.wise.SimulatorSettings.simulator_host), env.int("LGSVL__SIMULATOR_PORT", lgsvl.wise.SimulatorSettings.simulator_port))
-    # if sim.current_scene == flat_world:
+    # if sim.current_scene == san_fran:
     #     sim.reset()
     # else:
-    #     sim.load(flat_world)
+    #     sim.load(san_fran)
 
     # npc = scenario.tracks[0]
     # # LOAD EGO
