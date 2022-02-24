@@ -62,15 +62,13 @@ class Scenario:
                 is_ego = True if idx == self.sdc_track_index else False
                 tmp_tracks.append(Object(track, is_ego=is_ego))
                 break
-            return tmp_tracks
         else:
-            print(tracks)
-            for agent in tracks:
-                if agent['variant'] in ['Jaguar2015XE']:
+            for track in tracks:
+                if track['variant'] in ['Jaguar2015XE']:
                     is_ego = True
                     tmp_tracks.append(Object(track, is_ego=is_ego, VSE=VSE))
                 else:
                     is_ego = False
                     tmp_tracks.append(Object(track, is_ego=is_ego, VSE=VSE))
-            return tmp_tracks
+        return tmp_tracks
         

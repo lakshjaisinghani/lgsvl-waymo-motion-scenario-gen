@@ -15,22 +15,22 @@ sys.path.insert(0, parentdir)
 from waymo_open_dataset.protos import scenario_pb2
 
 class Object:
-    def __init__(self, tracks, is_ego=False, VSE=False):
-        self.id          = tracks['id']
+    def __init__(self, tracks, is_ego=False, VSE=True):
+        # self.id          = tracks['id']
         self.is_ego      = is_ego 
         self.VSE = VSE
         self.uuid = None
         
         if not self.VSE:
-            self.states      = tracks['states']
+            self.states = tracks['states']
         elif self.VSE and not self.is_ego:
-            self.states      = [tracks['transform']]
+            self.states = [tracks['transform']]
             self.states.extend(tracks['waypoints'])
-            self.uuid = tracks['uuid']
+
+            self.uuid   = tracks['uid']
         else:
-            self.states      = tracks['transform']
-            self.uuid = tracks['uuid']
-        
+            self.states = [tracks['transform']]
+            self.uuid   = tracks['uid']
 
         # agent type for both lgsvl and waymo
         self.agent_type = self.define_agent_type(tracks)
@@ -47,9 +47,10 @@ class Object:
             rot = Vector(x=0, y=rad2deg(state['heading']), z=0)
         else:
             pos = Vector(x=state['position']['x'], y=state['position']['y'], z=state['position']['z'])
-            rot = Vector(x=state['angle']['x'], y=state['angle']['y'], z=state['angle']['z'])
-
-
+            try:
+                rot = Vector(x=state['rotation']['x'], y=state['rotation']['y'], z=state['rotation']['z'])
+            except:
+                rot = Vector(x=state['angle']['x'], y=state['angle']['y'], z=state['angle']['z'])
         return Transform(position=pos, rotation=rot)
     
     def create_DriveWaypoints(self):

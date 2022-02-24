@@ -11,13 +11,12 @@ import lgsvl
 
 print("Python API Quickstart #13: NPC following waypoints")
 env = Env()
-flat_world = 'e6dc21da-0105-4534-a30d-c1939a8a4ff6'
 
 sim = lgsvl.Simulator(env.str("LGSVL__SIMULATOR_HOST", lgsvl.wise.SimulatorSettings.simulator_host), env.int("LGSVL__SIMULATOR_PORT", lgsvl.wise.SimulatorSettings.simulator_port))
-if sim.current_scene == flat_world:
+if sim.current_scene == lgsvl.wise.DefaultAssets.map_borregasave:
     sim.reset()
 else:
-    sim.load(flat_world)
+    sim.load(lgsvl.wise.DefaultAssets.map_borregasave)
 
 spawns = sim.get_spawn()
 forward = lgsvl.utils.transform_to_forward(spawns[0])

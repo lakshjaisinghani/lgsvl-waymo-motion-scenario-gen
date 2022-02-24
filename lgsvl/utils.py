@@ -4,7 +4,6 @@
 # This software contains code licensed as described in LICENSE.
 #
 
-from xml.etree.ElementTree import PI
 from .geometry import Vector, Transform
 
 import math
@@ -79,8 +78,6 @@ class ObjectState:
             }
         )
 
-def rad2deg(a):
-    return a * 180 / 3.141592653589793
 
 def transform_to_matrix(tr):
     px = tr.position.x

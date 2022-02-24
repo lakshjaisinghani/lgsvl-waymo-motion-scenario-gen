@@ -14,9 +14,6 @@ if __name__ == "__main__":
     json_scenario = "./scenarios/scenario.json"
     scenario = Scenario(json_scenario)
 
-    # plt = Plot()
-    # plt.plot_map(scenario.scenario)
-
     # print("ProjectVR simulation test: NPC following waypoints")
     # env = Env()
     # san_fran = '1f903cb2-477e-44aa-a8c0-a29af6d5e433'
@@ -27,16 +24,13 @@ if __name__ == "__main__":
     # else:
     #     sim.load(san_fran)
 
-    # npc = scenario.tracks[0]
+    
     # # LOAD EGO
-    # ego_spawn = copy.deepcopy(npc.spawn)
-    # ego_spawn.transform.position.x += 5
-    # ego_spawn.transform.position.z += 5
+    # ego_spawn = scenario.tracks[0].spawn
     # ego = sim.add_agent(env.str("LGSVL__VEHICLE_0", lgsvl.wise.DefaultAssets.ego_lincoln2017mkz_apollo5), lgsvl.AgentType.EGO, ego_spawn)
 
     # # LOAD NPC
-    
-    # print(npc.spawn.transform)
+    # npc = scenario.tracks[1]
     # npc_sim = sim.add_agent("Sedan", npc.agent_type['lgsvl'], npc.spawn)
 
     # # agent goal
@@ -53,15 +47,6 @@ if __name__ == "__main__":
     # # The NPC needs to be given the list of waypoints.
     # # A bool can be passed as the 2nd argument that controls whether or not the NPC loops over the waypoints (default false)
     # npc_sim.follow(waypoints)
-
-    # # # Creating state object to define state for Ego and NPC
-    # # ego_spawn = lgsvl.AgentState()
-    # # position = Vector(x=0, y=0.1, z=10000)
-    # # ego_spawn.transform = Transform(position=position)
-
-    # # # Ego
-    # # ego_state = copy.deepcopy(ego_spawn)
-    # # ego = sim.add_agent(env.str("LGSVL__VEHICLE_0", lgsvl.wise.DefaultAssets.ego_lincoln2017mkz_apollo5), lgsvl.AgentType.EGO, ego_spawn)
 
     # input("Press Enter to run the simulation for 30 seconds")
 
