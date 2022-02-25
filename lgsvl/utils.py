@@ -155,7 +155,9 @@ def matrix_inverse(m):
         [a, b, c, 1.0],
     ]
 
-
+def rad2deg(a):
+    return a * 180 / 3.141592653589793
+    
 def matrix_multiply(a, b):
     r = [[0, 0, 0, 0] for t in range(4)]
     for i in range(4):

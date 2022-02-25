@@ -65,7 +65,7 @@ class Object:
             if not self.VSE:
                 wp = lgsvl.DriveWaypoint(transform.position, 5, angle=transform.rotation, idle=0)
             else:
-                wp = lgsvl.DriveWaypoint(position=transform.position, speed=state['speed'], \
+                wp = lgsvl.DriveWaypoint(position=transform.position, speed=state['speed']-15, \
                                         acceleration=state['acceleration'], angle=transform.rotation, \
                                         idle=0)
 

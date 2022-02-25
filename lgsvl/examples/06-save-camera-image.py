@@ -28,6 +28,6 @@ sensors = ego.get_sensors()
 for s in sensors:
     if s.name == "Main Camera":
         # Camera and LIDAR sensors can save data to the specified file path
-        s.save("main-camera.png", compression=0)
+        s.save("C:\\Users\\User\\Desktop\\Projects\\lgsvl-waymo-motion-scenario-gen\\lgsvl\\examples\\main-camera.png", compression=0)
         s.save("main-camera.jpg", quality=75)
         break

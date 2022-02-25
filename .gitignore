@@ -7,6 +7,7 @@ __pycache__/
 *.so
 
 # .pb2
+./dataset
 
 # Distribution / packaging
 .Python
